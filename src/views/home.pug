@@ -6,23 +6,25 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Noom 
     link(rel="stylesheet", href="https://unpkg.com/mvp.css@1.12/mvp.css")
-  body 
+    link(rel="stylesheet", href="/public/css/style.css")
+  body
   header 
-    h1 Noom
-    h2 Anno
+    h1 zoom-clone-coding
+    h2 Anonymous
   main
     div#welcome
       form
-        input(placeholder="room name", required, type="text")
+        input(placeholder="채팅방 입력~", required, type="text")
         button Enter Room
+    div#nickname
+      form
+        input(placeholder="닉네임 입력쓰", required, type="text")
+        button Save
     div#room
       h3
       ul
-      form#name
-        input(placeholder="nickName", required, type="text")
-        button Save
       form#msg
-        input(placeholder="message", required, type="text")
+        input(placeholder="메시지를 입력하세요후!", required, type="text")
         button Send
     //- form#nick
     //-   input(type='text', placeholder='choose a nickname', required)

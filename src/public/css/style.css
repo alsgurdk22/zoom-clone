@@ -1,0 +1,15 @@
+#room ul {
+  list-style: none;
+}
+#room li.server {
+  color: red;
+  text-align: center;
+  background: aqua;
+  border-radius: 10px;
+}
+#room li.my {
+  color: blue;
+}
+#room li.you {
+  color: gray;
+}
