@@ -61,16 +61,33 @@ function handleRoomSubmit(event) {
 
 welcomeForm.addEventListener("submit", handleRoomSubmit);
 
-socket.on("welcome", (user) => {
+socket.on("welcome", (user, newCount) => {
+    const h3 = room.querySelector("h3");
+    h3.textContent = `Room Name: ${roomName} / (${newCount})`;
     addMessage(`-- ${user} 님이 입장하였습니다. 부대 차렷!! --`, "server");
 });
 
-socket.on("bye", (left) => {
+socket.on("bye", (left, newCount) => {
+    const h3 = room.querySelector("h3");
+    h3.textContent = `Room Name: ${roomName} / (${newCount})`;
     addMessage(`-- ${left} 님이 떠났습니다. ㅠㅠ --`, "server");
 });
 
 socket.on("new_message", (msg) => {
     addMessage(msg, "you")
+});
+
+socket.on("room_change", (rooms) => {
+    const roomList = welcome.querySelector("ul");
+    roomList.innerHTML = "";
+    if(rooms.length === 0) {
+        return;
+    }
+    rooms.forEach(room => {
+        const li = document.createElement("li");
+        li.innerText = room;
+        roomList.append(li);
+    });
 });
 // websocket 사용 시
 // const messageList = document.querySelector('ul');
